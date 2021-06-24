@@ -1,24 +1,32 @@
-console.log('Try npm run lint/fix!');
+import express from 'express';
+import serveIndex from 'serve-index';
+import cors from 'cors';
+import path from 'path';
 
-const longString =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut aliquet diam.';
+import {api} from './api-mongo';
 
-const trailing = 'Semicolon';
+// il faudra librairie de typage pour import/from au lieu de require, ça se fait depuis le cdm, ou desuis vscode
+const app = express();
+const port = +(process.env.ORSYS_PORT || 3000);
+const publicDir = process.env.ORSYS_WWDIR || './public';
 
-const why = 'am I tabbed?';
+//app.get("/", (req, res) => {
+//  res.send("Hello World!");
+//});
 
-export function doSomeStuff(
-  withThis: string,
-  andThat: string,
-  andThose: string[]
-) {
-  //function on one line
-  if (!andThose.length) {
-    return false;
-  }
-  console.log(withThis);
-  console.log(andThat);
-  console.dir(andThose);
-  return;
-}
-// TODO: more examples
+const angularDir = path.resolve(process.cwd(), '../front/dist/front');
+
+app.use(cors());
+
+app.use('/api', api);
+
+app.use(express.static(angularDir)); //fct qui renvoie fct est une fct de 1er ordre
+app.use(serveIndex(angularDir));
+
+app.use((req, res) => {
+  res.sendFile(path.resolve(angularDir, 'index.html'));
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
+});
