@@ -1,5 +1,8 @@
 import express from "express";
 import serveIndex from "serve-index";
+import cors from "cors";
+
+import { api } from "./api";
 
 // il faudra librairie de typage pour import/from au lieu de require, ça se fait depuis le cdm, ou desuis vscode
 const app = express();
@@ -9,6 +12,10 @@ const publicDir = process.env.ORSYS_WWDIR || "./public";
 //app.get("/", (req, res) => {
 //  res.send("Hello World!");
 //});
+
+app.use(cors());
+
+app.use("/api", api);
 
 app.use(express.static(publicDir)); //fct qui renvoie fct est une fct de 1er ordre
 app.use(serveIndex(publicDir));
