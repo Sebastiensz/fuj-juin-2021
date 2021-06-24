@@ -23,6 +23,9 @@ app.use('/api', api);
 app.use(express.static(angularDir)); //fct qui renvoie fct est une fct de 1er ordre
 app.use(serveIndex(angularDir));
 
+app.use(express.static(publicDir)); //fct qui renvoie fct est une fct de 1er ordre
+app.use(serveIndex(publicDir));
+
 app.use((req, res) => {
   res.sendFile(path.resolve(angularDir, 'index.html'));
 });

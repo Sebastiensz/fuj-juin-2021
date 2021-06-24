@@ -1,11 +1,8 @@
 import express from 'express';
 import {Article} from './interfaces/article';
-import path from 'path';
 const app = express.Router();
 
 export const api = app;
-
-const articleFilename = path.resolve(process.cwd(), './data/articles.json');
 
 let articles = [
   {id: 'a1', name: 'Tournevis', price: 2.99, qty: 234},

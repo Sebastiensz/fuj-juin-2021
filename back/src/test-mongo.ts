@@ -28,12 +28,14 @@ const sleep = (delay: number) =>
         qty: 100,
       };
       const r = await db.collection('articles').insertOne(article);
+      console.log('r: ', r);
       await sleep(1000);
       const r2 = await db.collection('articles').insertOne(article2);
       const articles: Article[] = await db
         .collection('articles')
         .find({})
         .toArray();
+      console.log('articles: ', articles);
       console.log('Connected successfully to server');
 
       const ids: ObjectID[] = [];
