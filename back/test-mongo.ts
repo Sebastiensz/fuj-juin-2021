@@ -7,7 +7,7 @@ const sleep = (delay: number) =>
 (async () => {
   try {
     // Connection URI
-    const uri = "mongodb://localhost:27017/?poolSize=20&writeConcern=majority";
+    const uri = "mongodb://localhost:27017/";
     // Create a new MongoClient
     const client = new MongoClient(uri, { useUnifiedTopology: true });
     try {

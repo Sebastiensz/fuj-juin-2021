@@ -2,7 +2,7 @@ import express from "express";
 import serveIndex from "serve-index";
 import cors from "cors";
 
-import { api } from "./api";
+import { api } from "./api-mongo";
 
 // il faudra librairie de typage pour import/from au lieu de require, ça se fait depuis le cdm, ou desuis vscode
 const app = express();
