@@ -1,4 +1,5 @@
 import express from "express";
+import { Article } from "../front/src/app/interfaces/article";
 
 const app = express.Router();
 
@@ -11,4 +12,12 @@ const articles = [
 
 app.get("/articles", (req, res) => {
   res.json(articles);
+});
+
+app.use(express.json());
+
+app.post("/articles", (req, res) => {
+  const article = req.body as Article;
+  articles.push(article);
+  res.json(article);
 });
