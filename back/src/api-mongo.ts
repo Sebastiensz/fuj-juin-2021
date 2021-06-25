@@ -2,10 +2,12 @@ import express from 'express';
 import {MongoClient, ObjectId, Db} from 'mongodb';
 import {Article} from './interfaces/article';
 
-const uri = 'mongodb://toto4:titi@MW31:27017/gestion-stock';
+const uri =
+  process.env.ORSYS_MONGO_URL || 'mongodb://localhost:27017/gestion-stock';
+// 'mongodb://toto4:titi@MW31:27017/gestion-stock';
 const client = new MongoClient(uri, {
   useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 5000,
+  serverSelectionTimeoutMS: +(process.env.ORSYS_MONGO_TIMEOUT || 5000),
 });
 let db: Db;
 

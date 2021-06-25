@@ -6,15 +6,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.api = void 0;
 const express_1 = __importDefault(require("express"));
 const mongodb_1 = require("mongodb");
-const uri = 'mongodb://localhost:27017/';
-const client = new mongodb_1.MongoClient(uri, { useUnifiedTopology: true });
+const uri = process.env.ORSYS_MONGO_URL || 'mongodb://localhost:27017/gestion-stock';
+// 'mongodb://toto4:titi@MW31:27017/gestion-stock';
+const client = new mongodb_1.MongoClient(uri, {
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: +(process.env.ORSYS_MONGO_TIMEOUT || 5000),
+});
 let db;
 (async () => {
     try {
+        console.log('about to connect to');
         await client.connect();
+        console.log('connexion ok');
         db = client.db('gestion-stock');
     }
     catch (err) {
+        console.log('la connexion à la database foire');
         console.log('err: ', err);
     }
 })();
