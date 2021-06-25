@@ -1,0 +1,104 @@
+<tr (click)="toggle(a)" [class.selected]="" *ngFor="let a of articleService.articles">
+rajouter une class selected si conditions entre "" est satisfaite pour [class.selected]=""
+
+
+
+
+mot clé extends pour héritage, va hériter de la classe ArticleService :
+
+export class HttpArticleService extends ArticleService {
+  constructor() {}
+}
+
+
+
+injection de dépendance avec le providers : providers: [{ provide: ArticleService, useClass: HttpArticleService }],
+
+
+
+
+
+
+
+communication avec le backend et implémentation fonction :
+this.http.get('http://localhost:3000/api/articles'); le résultat est un observable, c'est un peu comme promesse mais en mieux (ya des marbles)
+
+.subscribe pr démarrer observable
+
+
+
+cors policy, installer npm i cors
+mais pour utiliser en typescrit il faut installer module de typage :
+npm i @types/cors -D
+
+
+installer : JavaScript (ES6) code snippets dans les plugins vscode
+
+
+mon serveru de dev je peux le configurer pour proxy pour web services
+
+
+ctrkl shift t try catch
+
+
+
+sqllite est la bdd la plus utilisée au monde
+base de données relationnelles quand ya des tables
+et sinon c'est NoSQL, cad pas seulement du SQL
+
+bdd relationnelle, 
+
+documentaire (comme mongoDB,postgre) c tres performant pas besoin jointure, 
+
+clé-valeur (redis, memcached) utile pour les authentifications car 1000 fois + performant qu'une base sql
+
+bdd orientées colonnes (ça reste du SQL) on a des tables mais ici une colonne = 1 fichier, et comme la table est splité en plusieurs fichiers, requetes tres performantes
+
+bdd graphes (wiki data) : query.wikidata.org, voir le cours orsy data viz
+
+
+
+mongodb bon choix si on cherche de la perf
+
+on installe mongodb, complete, on uncheck compass (on l'installera séparément),  et on installer 
+compass c'est le client de la bdd
+
+
+refactoring de code pour passer de code qui pue a beau code : refactoring.guru/refactoring
+
+
+c'est le serveur back qui choisit ce qu'on met ds la bdd, la bdd doit juste etre persistante et performante
+insérer données ds bdd c responsabilité du backend
+
+
+
+
+
+
+
+
+
+
+
+mise en prod dans front avec npm run build
+
+
+
+app.use(express.static(angularDir)); //fct qui renvoie fct est une fct de 1er ordre
+app.use(serveIndex(angularDir)); pr la mise en prod avec const angularDir = path.resolve(process.cwd(), "../front/dist/front");
+
+mettre console.log vide dans environnement.prod.ts
+
+faire url rewriting dans server.ts
+
+la mise en prod est dans front/dist/front
+
+
+
+
+
+mise en prod front ok, go mise en prod back mtn
+
+gts npm (google typescript style)
+
+transfomer fichiers src du back de CRLF vers LF

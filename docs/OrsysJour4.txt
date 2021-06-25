@@ -1,0 +1,24 @@
+quand on fait un control V, tjr partir du bas et remonter en haut
+
+on set le timeout
+on crée un compte dans le cmd de mongodb
+
+process.env pour donner la main à la prod
+
+
+pm2 pour remplacer le cmd en local
+
+
+
+test unitaire cet apprem mais pas coté angular, outil mocha.js pour tests
+npx mocha pour lancer le test, pour cela on a créé un dossier test dans lequel on a mis un server.spec.js
+
+pour que ça marche il aura fallu mettre dans .eslintrcjson :
+  "env": {
+    "mocha": true
+   }
+}
+
+
+
+traduction du js en typescript, il faut donc npm i @types/mocha -D

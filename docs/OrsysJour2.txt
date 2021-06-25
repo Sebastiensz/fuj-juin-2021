@@ -1,0 +1,111 @@
+.browserlistrc   les fichiers en . sont les fichiers cachés
+ce fichier liste les navigateurs supportés, le compilateur scss le prend en compte
+
+quand on fait un site au depart, le faire en noir & blanc
+
+png (pixelisé) vs svg (vectoriel)attention au cra cra blanc (faire entrée dans le cmd pour l'enlever)
+
+avec angular on peut tester composant par composant (app.component.spec.ts) ce qui s'appelle test unitaire
+puis ensuite test d'intégration pour tester la globalité
+
+
+ng generate pr générer les 4 fichiers pr les composants
+
+kebab case, camel case, upper camel case...
+Pour nom de classe la classe commence par majuscule, pour variable il faut minuscule
+
+
+-d pour faire truc temporaire, -D pour dev
+
+Accessibilité tres importante pour les sites internets
+
+div c'est vertical
+span c'est horizontal
+
+dans css "em" plutot que "px"
+
+librairie normalize.css pour avoir un css consistant entre tous les navigateurs (va gérer notre marge à 0)
+
+css-tricks meilleur blog css
+
+display : flex pour pouvoir faire align-items:center;
+
+flexbox:froggy
+
+suzan 100 things every designer should now pdf --> prendre police sans serif
+
+site conventional comits.org tres important
+
+3 étapes (creations composant, créer les routing, et ensuite dire pr chaque composant ce qu'il doit afficher selon l'url qu'on lui donne, ici composant body)
+
+angular préchargé sur le navigateur, pas besoin de recontacter le serveur, on veut éviter recontactage inutile, donc au lieu de href on met routerLink, comme ça ça recharge pas l'appli angular
+dans le routing, ne pas mettre de "/" dans le "path" pour le 1er
+
+
+lazy loading explication, facile avec angular, angular preloaded strategy
+
+ng g m stock --route stock -m app -d pour générer module stock avec lazy loading pour --route et -m pour faire le lien dans app
+
+ctrl+d pour sélectionner les éléments du meme nom
+
+pour aligner verticalment la table & les boutons on les entour d'un div class="content"
+
+
+
+pour mettre une ligne sur 2 en grisée :
+tbody {
+  tr:nth-child(even) {
+    background-color: #eee;
+  }
+}
+
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+pour que le padding+100% du content soient inclus ensemble, évite le décalage
+
+
+
+
+
+
+gestalt theory
+
+concept du layout shifting
+
+flex flow column
+
+
+
+directive structurelle : *ngFor et *ngIf le reste osef
+
+
+
+
+créer une interface Article pour "imposer" les attributs de la classe article : d'abord dans le cmd : "ng g i interfaces/article"
+
+puis
+articles: Article[] = dans le fichier stock.component.ts sans oublier de l'importer
+
+
+
+
+
+ctrl+: pour mettre en commentaire
+
+
+
+
+injection service router : 
+constructor(private router:Router) {} dans add.components.ts
+
+
+composants ont cycle de vie tres limitée, il faut donc stocker des choses dans les services
+on fait ng g s services/article
+
+
