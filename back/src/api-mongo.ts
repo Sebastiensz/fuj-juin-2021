@@ -2,15 +2,21 @@ import express from 'express';
 import {MongoClient, ObjectId, Db} from 'mongodb';
 import {Article} from './interfaces/article';
 
-const uri = 'mongodb://localhost:27017/';
-const client = new MongoClient(uri, {useUnifiedTopology: true});
+const uri = 'mongodb://toto4:titi@MW31:27017/gestion-stock';
+const client = new MongoClient(uri, {
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 5000,
+});
 let db: Db;
 
 (async () => {
   try {
+    console.log('about to connect to');
     await client.connect();
+    console.log('connexion ok');
     db = client.db('gestion-stock');
   } catch (err) {
+    console.log('la connexion à la database foire');
     console.log('err: ', err);
   }
 })();

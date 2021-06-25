@@ -1,0 +1,9 @@
+use gestion-stock
+
+db.createUser({
+    user: "toto5",
+    pwd: "titi",
+    roles:[{role: "readWrite" , db:"gestion-stock"}]
+    })
+
+    #open all IP bu using with 0.0.0.0  in mongod.cdf in mongo repo
